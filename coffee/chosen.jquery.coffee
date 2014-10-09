@@ -47,6 +47,20 @@ class Chosen extends AbstractChosen
     @form_field_jq.hide().after @container
     @dropdown = @container.find('div.chosen-drop').first()
 
+    if @is_touch
+      @form_field_jq.css
+        'position': 'absolute'
+        'top': this.container.position().top + 'px'
+        'left': this.container.position().left + 'px'
+        'height': this.container.height() + 'px'
+        'width': this.container.width() + 'px'
+        'border': '1px solid black'
+        'z-index': '1'
+        'display': 'block'
+        'zoom': '1'
+        'opacity': '0'
+        'filter': 'alpha(opacity=0)'
+
     @search_field = @container.find('input').first()
     @search_results = @container.find('ul.chosen-results').first()
     this.search_field_scale()
